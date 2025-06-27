@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jigsaw</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+    .warning {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+    .footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Files Have Been Encrypted</h1>
+  <p class="warning" id="timer">Time Left: 00:59:59</p>
+  <p>If you do not pay $150 in Bitcoin within the next 1 hour, one of your files will be deleted every 60 seconds.<br>
+     The longer you wait, the more you lose. This is not a game.</p>
+  <p>Send payment to the following address:<br><strong>1FakeBitcoinAddr3ssDontUse</strong></p>
+  <p>After payment, your files will be restored. Maybe.</p>
+
+  <div class="footer">This is a harmless visual replica for educational/fun purposes only.</div>
+
+  <script>
+    // Countdown timer from 1 hour
+    let totalSeconds = 60 * 60; // 1 hour
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+      const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const seconds = String(totalSeconds % 60).padStart(2, '0');
+      timerElement.textContent = `Time Left: ${hours}:${minutes}:${seconds}`;
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      }
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
