@@ -1,5 +1,5 @@
 ## Hi there 👋
-
+This is just for learning, and only learning!
 <!--
 **pittypot/PittyPot** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
